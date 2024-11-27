@@ -33,7 +33,7 @@ apply:
 The final step is to apply the changes to the infrastructure.The `apply` command.
 it will read the `.tf` files and apply the changes to the infrastructure.
 
-We can also validate teh terraform configuration files using the `validate` command.
+We can also validate the terraform configuration files using the `validate` command.
 
 ```bash
 terraform validate
@@ -44,6 +44,8 @@ And format the configuration files using the `fmt` command.
 ```bash
 terraform fmt
 ```
+
+### Terraform Init
 
 The `terraform.lock.hcl` file is used to lock the provider versions.
 It is like a `package-lock.json` file in node.js.
@@ -91,4 +93,32 @@ We also can create destroy plan using the `destroy` command.
 ```bash
 terraform plan -destroy -out=destroy.plan
 terraform apply destroy.plan
+```
+
+### Terraform Apply
+
+We can use terraform apply to apply the changes to the infrastructure.
+
+```bash
+terraform apply
+```
+
+After applying the changes, we can destroy the infrastructure using
+the `destroy` command.
+
+```bash
+terraform destroy
+```
+
+we can list the current state using the `state` command.
+
+```bash
+terraform state list
+```
+
+If any unhealthy state is found,we can replace command to replace the resource.
+
+```bash
+terraform apply -replace="resource_name"
+terrafrom apply -replace="local_file.file"
 ```
