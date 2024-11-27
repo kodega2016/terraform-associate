@@ -71,3 +71,24 @@ After saving the plan, we can apply the plan using the `apply` command.
 ```bash
 terraform apply plan.out
 ```
+
+We can view the plan detail using
+
+```bash
+terraform show "plan_name"
+terraform show -json "plan_name"
+```
+
+We can use the `jq` tools to parse the json output.
+
+```bash
+terraform show -json "plan_name" | jq
+terraform show -json "plan_name" | jq .terraform_version
+```
+
+We also can create destroy plan using the `destroy` command.
+
+```bash
+terraform plan -destroy -out=destroy.plan
+terraform apply destroy.plan
+```
