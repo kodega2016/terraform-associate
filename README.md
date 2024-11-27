@@ -122,3 +122,33 @@ If any unhealthy state is found,we can replace command to replace the resource.
 terraform apply -replace="resource_name"
 terrafrom apply -replace="local_file.file"
 ```
+
+## Terraform Variables
+
+We can use the variables in terraform configuration files to make it more
+flexible and reusable.
+
+We use the `variable` block to define the variables.
+
+```hcl
+variable "region" {
+  type = string
+  default = "us-east-1"
+}
+```
+
+We can use that variable in the resource block.
+
+```hcl
+resource "aws_instance" "example" {
+  ami = "ami-0c55b159cbfafe1f0"
+  instance_type = "t2.micro"
+  availability_zone = var.region
+}
+```
+
+We can use the `-var` flag to pass the variable value.
+
+```bash
+terraform apply -var="region=us-west-1"
+```
