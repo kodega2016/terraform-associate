@@ -152,3 +152,26 @@ We can use the `-var` flag to pass the variable value.
 ```bash
 terraform apply -var="region=us-west-1"
 ```
+
+## Terraform Output
+
+We can use the output block to output the values of the resources.
+
+```hcl
+output "instance_ip" {
+  value = aws_instance.example.public_ip
+}
+```
+
+We also use the `output` command to view the output values.
+
+```bash
+terraform output
+terraform output -json
+```
+
+Also,we can use the specific output value.
+
+```bash
+terraform output instance_ip
+```
