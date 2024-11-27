@@ -47,3 +47,27 @@ terraform fmt
 
 The `terraform.lock.hcl` file is used to lock the provider versions.
 It is like a `package-lock.json` file in node.js.
+
+If any conflict occured during the initalization after upgrading the provider version,
+we can use
+
+```bash
+terraform init --upgrade
+```
+
+It will upgrade to the most recent version.
+
+### Terraform plan
+
+We can use the `terraform plan` command to create an execution plan.
+Also it can be save using the `-out` flag.
+
+```bash
+terraform plan -out=plan.out
+```
+
+After saving the plan, we can apply the plan using the `apply` command.
+
+```bash
+terraform apply plan.out
+```
