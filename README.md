@@ -175,3 +175,29 @@ Also,we can use the specific output value.
 ```bash
 terraform output instance_ip
 ```
+
+## Terraform Version
+
+We can use specific version of terraform using the `version` argument.
+
+```hcl
+terraform {
+  required_version = ">= 0.12"
+}
+```
+
+We also can same for the provider version.
+
+```hcl
+terraform {
+  required_providers {
+    aws = {
+      source = "hashicorp/aws"
+      version = ">= 3.0"
+    }
+  }
+}
+```
+
+To upgrade the provider to the latest version with in the version
+constraint, we can use the `terraform init -upgrade` command.
