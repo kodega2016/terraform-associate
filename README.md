@@ -201,3 +201,19 @@ terraform {
 
 To upgrade the provider to the latest version with in the version
 constraint, we can use the `terraform init -upgrade` command.
+
+## Target Resource
+
+We can use the `-target` flag to target specific resource.
+
+```bash
+terraform apply -target="resource_name"
+terraform apply -target="aws_instance.example"
+```
+
+We also plan the target resource.
+
+```bash
+terraform plan -target="resource_name"
+terraform plan -target="aws_instance.example" -out=plan.out
+```
