@@ -217,3 +217,15 @@ We also plan the target resource.
 terraform plan -target="resource_name"
 terraform plan -target="aws_instance.example" -out=plan.out
 ```
+
+## Terraform Local Values
+
+We can use the `locals` block to define the local values.
+
+```hcl
+locals {
+  instance_type = "t2.micro"
+}
+```
+
+The local values doesnot change their values after the initialization.
