@@ -1,0 +1,13 @@
+terraform {
+  required_version = ">= 1.3.0"
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "5.78.0"
+    }
+  }
+
+  // we can dynamically pass the backend from the cli
+  backend "s3" {
+  }
+}
