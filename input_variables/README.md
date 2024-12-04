@@ -9,3 +9,9 @@ variable "aws_region"{
   description="This is default region for the aws resources"
 }
 ```
+
+We also can pass the variable in the cli also.
+
+```bash
+terraform apply -var aws_region=us-east-2
+```
