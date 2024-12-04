@@ -8,6 +8,11 @@ variable "ec2_instance_size" {
   default     = "t2.micro"
   type        = string
   description = "This is the default ec2 instance type"
+
+  validation {
+    condition     = var.ec2_instance_size == "t2.micro" || var.ec2_instance_size == "t3.micro"
+    error_message = "Only supports t2.micro or t3.micro"
+  }
 }
 
 variable "allow_public_ip_address" {
