@@ -10,7 +10,8 @@ variable "ec2_instance_size" {
   description = "This is the default ec2 instance type"
 
   validation {
-    condition     = var.ec2_instance_size == "t2.micro" || var.ec2_instance_size == "t3.micro"
+    # condition     = var.ec2_instance_size == "t2.micro" || var.ec2_instance_size == "t3.micro"
+    condition     = contains(["t2.micro", "t3.micro"], var.ec2_instance_size)
     error_message = "Only supports t2.micro or t3.micro"
   }
 }
