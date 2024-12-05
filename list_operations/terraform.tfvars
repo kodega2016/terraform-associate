@@ -1,0 +1,15 @@
+numbers_list=[10,20,30,40,50,1,5,9]
+objects_list=[
+  {
+    firstname="John",
+    lastname="Doe"
+  },
+  {
+    firstname="Jane",
+    lastname="Doe"
+  },
+  {
+    firstname="Jim",
+    lastname="Smith"
+  }
+]
