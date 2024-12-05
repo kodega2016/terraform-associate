@@ -15,6 +15,8 @@ locals {
       users = username
     }
   }
+
+  roles = var.users[*].role
 }
 
 output "results" {
@@ -23,5 +25,6 @@ output "results" {
     doubles_map = local.doubles_map
     users_map   = local.users_map
     users_map_with_roles : local.users_map_with_roles
+    roles = local.roles
   }
 }
